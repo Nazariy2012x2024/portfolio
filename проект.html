@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        :root {
+            /* White-Coffee Palette */
+            --bg-color: #fdfcfb;      /* Steamed milk */
+            --accent-color: #e6ded5;  /* Light latte */
+            --text-color: #4a3b32;    /* Espresso */
+            --btn-hover: #6b5648;     /* Medium roast */
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 60px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        /* 6-Picture Grid Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1000px;
+            width: 100%;
+            margin-bottom: 60px;
+        }
+
+        .gallery img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 12px;
+            background-color: var(--accent-color);
+            box-shadow: 0 8px 24px rgba(74, 59, 50, 0.06);
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
+            cursor: pointer;
+        }
+
+        .gallery img:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 32px rgba(74, 59, 50, 0.12);
+        }
+
+        /* Smart Buttons */
+        .links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            text-decoration: none;
+            color: var(--bg-color);
+            background-color: var(--text-color);
+            padding: 16px 36px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(74, 59, 50, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Shine effect on hover */
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+            transition: left 0.6s ease;
+            transform: skewX(-20deg);
+        }
+
+        .btn:hover {
+            background-color: var(--btn-hover);
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(74, 59, 50, 0.25);
+        }
+
+        .btn:hover::after {
+            left: 150%;
+        }
+
+        /* Custom Corner Sign */
+        .corner-sign {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            font-size: 14px;
+            color: #b3a79d;
+            font-weight: 500;
+            user-select: none;
+            pointer-events: none;
+            letter-spacing: 1px;
+        }
+
+        .tall-zero {
+            display: inline-block;
+            transform: scaleY(1.4); /* Stretches the 0 in height */
+            margin: 0 1px;
+        }
+
+        .wide-u {
+            display: inline-block;
+            transform: scaleX(1.6); /* Stretches the u in length */
+            margin: 0 3px;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+            .links {
+                flex-direction: column;
+                width: 100%;
+                max-width: 250px;
+            }
+            .btn {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 6 Picture Demo -->
+    <div class="gallery">
+        <img src="" alt="Demo Picture 1">
+        <img src="" alt="Demo Picture 2">
+        <img src="" alt="Demo Picture 3">
+        <img src="" alt="Demo Picture 4">
+        <img src="" alt="Demo Picture 5">
+        <img src="" alt="Demo Picture 6">
+    </div>
+
+    <!-- Smart Buttons -->
+    <div class="links">
+        <a href="https://tiktok.com" target="_blank" class="btn">TikTok</a>
+        <a href="https://t.me" target="_blank" class="btn">Telegram</a>
+    </div>
+
+    <!-- Small Corner Sign -->
+    <div class="corner-sign">
+        @nightlyd<span class="tall-zero">0</span>n<span class="wide-u">u</span>t
+    </div>
+
+</body>
+</html>
